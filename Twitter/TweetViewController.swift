@@ -20,12 +20,12 @@ class TweetViewController: UIViewController {
 
 
     @IBOutlet weak var tweetTextView: UITextField!
-    
+     
     @IBAction func Cancel(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
     @IBAction func Tweet(_ sender: Any) {
-        if(tweetTextView.text!.isEmpty){
+        if(!tweetTextView.text!.isEmpty){
             TwitterAPICaller.client?.postTweet(tweetString: tweetTextView.text!, success: {
                 self.dismiss(animated: true, completion: nil)
             }, failure: { (error) in
